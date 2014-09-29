@@ -21,7 +21,7 @@ public class UserDao extends DAOSupport<User, String> {
     private final static EhCache userCache = EhCacheFactory.newCache("userCache", 1000, 2 * 60, 2 * 60);
 
     public UserDao() {
-        super("user", "SHAREREC_USER");
+        super(R.USER, R.USER_DB);
     }
 
     public User findByPrimaryKey(String id) {

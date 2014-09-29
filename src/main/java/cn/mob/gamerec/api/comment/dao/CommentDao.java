@@ -1,5 +1,6 @@
 package cn.mob.gamerec.api.comment.dao;
 
+import cn.mob.gamerec.R;
 import cn.mob.gamerec.api.comment.domain.Comment;
 import com.lamfire.mongodb.DAOSupport;
 
@@ -9,6 +10,6 @@ import com.lamfire.mongodb.DAOSupport;
  */
 public class CommentDao extends DAOSupport<Comment, String> {
     public CommentDao() {
-        super("comment", "SHAREREC_COMMENT");
+        super(R.COMMENT, R.COMMENT_DB);
     }
 }

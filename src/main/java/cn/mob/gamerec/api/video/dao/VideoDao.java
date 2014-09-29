@@ -14,7 +14,7 @@ import java.util.List;
 @Component
 public class VideoDao extends DAOSupport<Video, String> {
     public VideoDao() {
-        super("video", "SHAREREC_VIDEO");
+        super(R.VIDEO, R.VIDEO_DB);
     }
 
     public Video findByPrimaryKey(String id) {

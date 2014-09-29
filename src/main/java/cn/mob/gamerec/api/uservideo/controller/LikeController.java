@@ -1,7 +1,7 @@
-package cn.mob.gamerec.api.like.controller;
+package cn.mob.gamerec.api.uservideo.controller;
 
-import cn.mob.gamerec.api.like.dao.LikeDao;
-import cn.mob.gamerec.api.like.domain.Like;
+import cn.mob.gamerec.api.uservideo.dao.UserVideoDao;
+import cn.mob.gamerec.api.uservideo.domain.UserVideo;
 import cn.mob.gamerec.util.JSONResult;
 import cn.mob.gamerec.util.Utils;
 import org.springframework.stereotype.Controller;
@@ -20,14 +20,12 @@ import javax.annotation.Resource;
 public class LikeController {
 
     @Resource
-    private LikeDao likeDao;
+    private UserVideoDao likeDao;
 
     @RequestMapping("/add")
     @ResponseBody
     public String add(@PathVariable String userid, @PathVariable String videoid) {
-        Like like = new Like();
-        //以后改换mongodb提供的objectId
-        like.setId(Utils.getUUid());
+        UserVideo like = new UserVideo();
         like.setUserid(userid);
         like.setVideoid(videoid);
         likeDao.save(like);
