@@ -31,19 +31,14 @@ public class UserController {
     public String getUsersByAppkey(@PathVariable String appkey, @PathVariable int pageindex, @PathVariable int pagesize) {
         List<User> users = userDao.findByAppkey(appkey, pageindex, pagesize);
         long total = userDao.countAllByAppkey(appkey);
-        JSON result = JSONResult.getResult();
-        result.put("result", JSON.toJsonString(users));
-        result.put("total", total);
-        return result.toString();
+        return JSONResult.getResult().putResult(JSON.parseFromObject(users)).putTotal(total).toString();
     }
 
     @RequestMapping("/login")
     @ResponseBody
     public String login(@PathVariable String nickname, @PathVariable String password) {
         User user = userDao.findByNicknameAndPassword(nickname, MD5.hash(password));
-        JSON result = JSONResult.getResult();
-        result.put("result", JSON.toJsonString(user));
-        return result.toString();
+        return JSONResult.getResult().putResult(JSON.parseFromObject(user)).toString();
     }
 
     /**
@@ -54,9 +49,7 @@ public class UserController {
     @ResponseBody
     public String view(@PathVariable String id) {
         User user = userDao.findByPrimaryKey(id);
-        JSON result = JSONResult.getResult();
-        result.put("result", JSON.toJsonString(user));
-        return result.toString();
+        return JSONResult.getResult().putResult(JSON.parseFromObject(user)).toString();
     }
 
     @RequestMapping("/updateStatus")
@@ -93,12 +86,9 @@ public class UserController {
     }
 
     public String likedVideos(@PathVariable String userid, @PathVariable int pageindex, @PathVariable int pagesize) {
-//        List<User> users = userDao.findByAppkey(appkey, pageindex, pagesize);
-//        long total = userDao.countAllByAppkey(appkey);
-        JSON result = JSONResult.getResult();
-//        result.put("result", JSON.toJsonString(users));
-//        result.put("total", total);
-        return result.toString();
+        User user = userDao.findByPrimaryKey(userid);
+        long total = userDao.countAllByAppkey(userid);
+        return JSONResult.getResult().putResult(JSON.parseFromObject(user)).putTotal(total).toString();
     }
 
 

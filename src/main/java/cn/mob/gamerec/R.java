@@ -19,6 +19,7 @@ public class R {
 
 
     public final static String USERID = "userid";
+    public final static String VIDEOID = "videoid";
 
 
     public final static String SHAREURL = "shareurl";

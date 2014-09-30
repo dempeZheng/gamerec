@@ -6,6 +6,8 @@ import com.lamfire.mongodb.morphia.annotations.Id;
 import java.io.Serializable;
 
 /**
+ * video 冗余user model中的nickname 和avatar方便查询
+ *
  * @author : Dempe
  * @version 1.0 date : 2014/9/28
  */
@@ -17,6 +19,8 @@ public class Video implements Serializable {
     //private String duid;
     //@Indexed(background = true,name = "")
     private String userid;
+    private String nickname;
+    private String avatar;
     private String appkey;
     private Integer length;
     private Integer plat;
@@ -168,5 +172,21 @@ public class Video implements Serializable {
 
     public void setScreenType(Integer screenType) {
         this.screenType = screenType;
+    }
+
+    public String getNickname() {
+        return nickname;
+    }
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
+    }
+
+    public String getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
     }
 }

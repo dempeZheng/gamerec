@@ -14,8 +14,19 @@ public class JSONResult extends JSON {
         return result;
     }
 
-    public void putErrorStatus(int status) {
+    public JSONResult putErrorStatus(int status) {
         put("status", status);
         put("message", ErrorMsg.get(status));
+        return this;
+    }
+
+    public JSONResult putResult(JSON result) {
+        put("result", result);
+        return this;
+    }
+
+    public JSONResult putTotal(long total) {
+        put("total", total);
+        return this;
     }
 }

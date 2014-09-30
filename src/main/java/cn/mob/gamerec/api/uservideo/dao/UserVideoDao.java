@@ -26,7 +26,16 @@ public class UserVideoDao extends DAOSupport<UserVideo, String> {
                 limit(pagesize).asList();
     }
 
+    public List<UserVideo> findByVideoid(String videoid, int pageindex, int pagesize) {
+        return createQuery().field(R.VIDEOID).equal(videoid).order(R._CREATEAT).offset(pageindex * pagesize).
+                limit(pagesize).asList();
+    }
+
     public long countByUserid(String userid) {
         return createQuery().field(R.USERID).equal(userid).countAll();
+    }
+
+    public long countByVideoid(String videoid) {
+        return createQuery().field(R.VIDEOID).equal(videoid).countAll();
     }
 }
