@@ -1,6 +1,7 @@
 package cn.mob.gamerec.api;
 
 import cn.mob.gamerec.util.ThirdParty;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -9,7 +10,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * @author : Dempe
  * @version 1.0 date : 2014/9/28
  */
-//@Controller("/app")
+@Controller("/app")
 public class AppController {
 
 
