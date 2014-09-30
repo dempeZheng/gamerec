@@ -1,6 +1,7 @@
 package cn.mob.gamerec.api.uservideo.domain;
 
 import com.lamfire.mongodb.morphia.annotations.Entity;
+import com.lamfire.mongodb.morphia.annotations.Id;
 
 /**
  * @author : Dempe
@@ -9,6 +10,8 @@ import com.lamfire.mongodb.morphia.annotations.Entity;
 @Entity
 public class UserVideo {
 
+    @Id
+    private String id;
 
     private String userid;
 
@@ -29,5 +32,13 @@ public class UserVideo {
 
     public void setVideoid(String videoid) {
         this.videoid = videoid;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 }

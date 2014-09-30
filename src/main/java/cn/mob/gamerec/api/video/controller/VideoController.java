@@ -93,7 +93,7 @@ public class VideoController {
      * @param pagesize
      * @return
      */
-    @RequestMapping("/getPublicVideosByAppKey")
+    @RequestMapping("/getPublicVideos")
     @ResponseBody
     public String getPublicVideos(@PathVariable int pageindex, @PathVariable int pagesize) {
         List<Video> videos = videoDao.findByStatus(1, pageindex, pagesize);

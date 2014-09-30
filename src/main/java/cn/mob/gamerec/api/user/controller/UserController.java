@@ -92,4 +92,14 @@ public class UserController {
         return JSONResult.getResult().toString();
     }
 
+    public String likedVideos(@PathVariable String userid, @PathVariable int pageindex, @PathVariable int pagesize) {
+//        List<User> users = userDao.findByAppkey(appkey, pageindex, pagesize);
+//        long total = userDao.countAllByAppkey(appkey);
+        JSON result = JSONResult.getResult();
+//        result.put("result", JSON.toJsonString(users));
+//        result.put("total", total);
+        return result.toString();
+    }
+
+
 }
