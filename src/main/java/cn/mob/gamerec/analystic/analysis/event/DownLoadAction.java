@@ -11,6 +11,5 @@ public class DownLoadAction {
 
     public static void handler(String key) {
         storeMap.incr(key);
-
     }
 }

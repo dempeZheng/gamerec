@@ -12,7 +12,7 @@ import com.lamfire.utils.JSON;
  */
 public class Analysis {
 
-    public void streaming(String message) {
+    public static void streaming(String message) {
 
         JSON json = JSON.parseFromJSONString(message);
         int ea = (Integer) json.get("EventAction");

@@ -23,6 +23,7 @@ public class R {
 
 
     public final static String SHAREURL = "shareurl";
+    public final static String EVENT = "event";
 
     public final static String USERVIDEO = "uservideo";
     public final static String USERVIDEO_DB = "SHAREREC_USERVIDEO";

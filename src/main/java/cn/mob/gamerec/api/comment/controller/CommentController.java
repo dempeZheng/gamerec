@@ -27,9 +27,6 @@ public class CommentController {
 
     private ShardedJedis jedis = RedisPool.getJedis();
 
-//    @Resource
-//    private StringRedisTemplate template;
-
     @RequestMapping("/add")
     @ResponseBody
     public String add(@PathVariable String userid, @PathVariable String videoid, @PathVariable String content,
