@@ -1,6 +1,5 @@
 package cn.mob.gamerec.analystics;
 
-import cn.mob.gamerec.R;
 import cn.mob.gamerec.analystics.analysis.Analysis;
 import cn.mob.gamerec.analystics.analysis.KafkaStreamUtil;
 import kafka.consumer.ConsumerIterator;
@@ -43,5 +42,6 @@ public class Analystic  {
         }
 
     }
+
 
 }

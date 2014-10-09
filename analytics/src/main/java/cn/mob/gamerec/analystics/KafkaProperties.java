@@ -1,8 +1,8 @@
-package cn.mob.gamerec.util;
+package cn.mob.gamerec.analystics;
 
 /**
  * @author : Dempe
- * @version 1.0 date : 2014/9/30
+ * @version 1.0 date : 2014/10/9
  */
 public interface KafkaProperties
 {

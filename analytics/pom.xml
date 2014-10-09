@@ -12,5 +12,13 @@
     <groupId>cn.mob.gamerec</groupId>
     <artifactId>analytics</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.kafka</groupId>
+            <artifactId>kafka_2.8.2</artifactId>
+            <version>0.8.1</version>
+        </dependency>
+    </dependencies>
+
 
 </project>

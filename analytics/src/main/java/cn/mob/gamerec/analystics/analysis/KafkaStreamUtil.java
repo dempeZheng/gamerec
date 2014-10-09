@@ -1,6 +1,6 @@
 package cn.mob.gamerec.analystics.analysis;
 
-import cn.mob.gamerec.util.KafkaProperties;
+import cn.mob.gamerec.analystics.KafkaProperties;
 import kafka.consumer.ConsumerConfig;
 import kafka.consumer.ConsumerIterator;
 import kafka.javaapi.consumer.ConsumerConnector;
