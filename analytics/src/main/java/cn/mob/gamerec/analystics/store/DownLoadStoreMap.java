@@ -1,20 +1,20 @@
-package cn.mob.gamerec.analystic.store;
+package cn.mob.gamerec.analystics.store;
 
 /**
  * @author : Dempe
  * @version 1.0 date : 2014/9/30
  */
-public class PlayStoreMap extends StoreMap implements Sync {
-    public static PlayStoreMap instance;
+public class DownLoadStoreMap extends StoreMap implements Sync {
+    public static DownLoadStoreMap instance;
 
-    private PlayStoreMap() {
+    private DownLoadStoreMap() {
         System.out.println("start sync.freq ");
         sync();
     }
 
-    public static PlayStoreMap getInstance() {
+    public static DownLoadStoreMap getInstance() {
         if (instance == null) {
-            instance = new PlayStoreMap();
+            instance = new DownLoadStoreMap();
         }
         return instance;
     }

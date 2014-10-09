@@ -1,6 +1,6 @@
-package cn.mob.gamerec.analystic.analysis.event;
+package cn.mob.gamerec.analystics.analysis.event;
 
-import cn.mob.gamerec.analystic.store.PlayStoreMap;
+import cn.mob.gamerec.analystics.store.PlayStoreMap;
 
 /**
  * @author : Dempe

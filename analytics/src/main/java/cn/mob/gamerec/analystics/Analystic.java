@@ -1,8 +1,8 @@
-package cn.mob.gamerec.analystic;
+package cn.mob.gamerec.analystics;
 
 import cn.mob.gamerec.R;
-import cn.mob.gamerec.analystic.analysis.Analysis;
-import cn.mob.gamerec.analystic.analysis.KafkaStreamUtil;
+import cn.mob.gamerec.analystics.analysis.Analysis;
+import cn.mob.gamerec.analystics.analysis.KafkaStreamUtil;
 import kafka.consumer.ConsumerIterator;
 import kafka.consumer.KafkaStream;
 import org.apache.log4j.Logger;

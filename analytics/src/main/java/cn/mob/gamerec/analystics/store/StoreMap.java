@@ -1,4 +1,4 @@
-package cn.mob.gamerec.analystic.store;
+package cn.mob.gamerec.analystics.store;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;

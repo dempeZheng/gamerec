@@ -1,9 +1,9 @@
-package cn.mob.gamerec.analystic.analysis;
+package cn.mob.gamerec.analystics.analysis;
 
-import cn.mob.gamerec.analystic.analysis.event.DownLoadAction;
-import cn.mob.gamerec.analystic.analysis.event.LikeAction;
-import cn.mob.gamerec.analystic.analysis.event.PlayAction;
-import cn.mob.gamerec.analystic.analysis.event.ShareAction;
+import cn.mob.gamerec.analystics.analysis.event.DownLoadAction;
+import cn.mob.gamerec.analystics.analysis.event.LikeAction;
+import cn.mob.gamerec.analystics.analysis.event.PlayAction;
+import cn.mob.gamerec.analystics.analysis.event.ShareAction;
 import com.lamfire.utils.JSON;
 
 /**

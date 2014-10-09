@@ -1,4 +1,4 @@
-package cn.mob.gamerec.analystic.analysis;
+package cn.mob.gamerec.analystics.analysis;
 
 import cn.mob.gamerec.util.KafkaProperties;
 import kafka.consumer.ConsumerConfig;

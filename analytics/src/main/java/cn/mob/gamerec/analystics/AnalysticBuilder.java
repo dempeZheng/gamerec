@@ -1,4 +1,4 @@
-package cn.mob.gamerec.analystic;
+package cn.mob.gamerec.analystics;
 
 /**
  * @author : Dempe
