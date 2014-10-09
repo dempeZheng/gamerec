@@ -5,6 +5,7 @@ package cn.mob.gamerec.recommend
  * @author : Dempe 
  */
 import org.apache.spark.SparkContext
+import org.apache.spark.SparkContext._
 import org.apache.spark.mllib.recommendation.ALS
 import org.apache.spark.mllib.recommendation.Rating
 
@@ -29,6 +30,7 @@ object SimpleApp {
     val ratesAndPreds = ratings.map{
       case Rating(user, product, rate) => ((user, product), rate)
     }.join(predictions)
+
     val MSE = ratesAndPreds.map{
       case ((user, product), (r1, r2)) =>  math.pow((r1- r2), 2)
     }.reduce(_ + _)/ratesAndPreds.count
