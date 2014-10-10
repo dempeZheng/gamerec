@@ -3,6 +3,7 @@ package cn.mob.gamerec.api;
 import cn.mob.gamerec.util.JSONResult;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
@@ -17,19 +18,19 @@ public class TopController {
 
     @RequestMapping("/like")
     @ResponseBody
-    public String like(int top) {
+    public String like(@RequestParam Integer top) {
         return JSONResult.getResult().toString();
     }
 
     @RequestMapping("/play")
     @ResponseBody
-    public String play(int top) {
+    public String play(@RequestParam Integer top) {
         return JSONResult.getResult().toString();
     }
 
     @RequestMapping("/comment")
     @ResponseBody
-    public String comment(int top) {
+    public String comment(@RequestParam Integer top) {
         return JSONResult.getResult().toString();
     }
 }

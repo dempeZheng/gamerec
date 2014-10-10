@@ -4,8 +4,8 @@ import cn.mob.gamerec.R;
 import cn.mob.gamerec.util.JSONResult;
 import cn.mob.gamerec.util.Producer;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
@@ -28,7 +28,7 @@ public class EventController {
 
     @RequestMapping("/add")
     @ResponseBody
-    public String view(@PathVariable String message) {
+    public String view(@RequestParam String message) {
         //push queue
         producer.send(message, R.EVENT);
         return JSONResult.getResult().toString();

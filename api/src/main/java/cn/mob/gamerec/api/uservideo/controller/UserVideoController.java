@@ -11,8 +11,8 @@ import cn.mob.gamerec.util.JSONResult;
 import cn.mob.gamerec.util.MD5;
 import com.lamfire.utils.JSON;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
@@ -43,7 +43,7 @@ public class UserVideoController {
      */
     @RequestMapping("/add")
     @ResponseBody
-    public String add(@PathVariable String userid, @PathVariable String videoid) {
+    public String add(@RequestParam String userid, @RequestParam String videoid) {
         UserVideo userVideo = new UserVideo();
         userVideo.setId(MD5.hash(userid + R.SPLIT + videoid));
         userVideo.setUserid(userid);
@@ -54,7 +54,7 @@ public class UserVideoController {
 
     @RequestMapping("/isLike")
     @ResponseBody
-    public String isLike(@PathVariable String userid, @PathVariable String videoid) {
+    public String isLike(@RequestParam String userid, @RequestParam String videoid) {
         boolean isLike = userVideoDao.exists(R.ID, MD5.hash(userid + R.SPLIT + videoid));
         JSON result = JSONResult.getResult();
         result.put("isLike", isLike);
@@ -63,7 +63,7 @@ public class UserVideoController {
 
     @RequestMapping("/getVideosByUserid")
     @ResponseBody
-    public String getVideosByUserid(@PathVariable String userid, @PathVariable int pageindex, @PathVariable int pagesize) {
+    public String getVideosByUserid(@RequestParam String userid, @RequestParam int pageindex, @RequestParam int pagesize) {
         List<UserVideo> userVideoList = userVideoDao.findByUserid(userid, pageindex, pagesize);
         long total = userVideoDao.countByUserid(userid);
         List<String> videoIds = new ArrayList<String>();
@@ -77,7 +77,7 @@ public class UserVideoController {
 
     @RequestMapping("/getUsersByVideoid")
     @ResponseBody
-    public String getUsersByVideoid(@PathVariable String videoid, @PathVariable int pageindex, @PathVariable int pagesize) {
+    public String getUsersByVideoid(@RequestParam String videoid, @RequestParam int pageindex, @RequestParam int pagesize) {
         List<UserVideo> userVideoList = userVideoDao.findByVideoid(videoid, pageindex, pagesize);
         long total = userVideoDao.countByVideoid(videoid);
         List<String> userIds = new ArrayList<String>();

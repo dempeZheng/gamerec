@@ -25,6 +25,7 @@ public class User implements Serializable {
     private Integer videos;
     private Integer following;
     private Integer followers;
+    //@Pattern(regexp="/^1[3|4|5|6|7|8|9][0-9]{1}[0-9]{8}$/", message="phone number wrong")
     private String phoneNumber;
 
     public String getId() {

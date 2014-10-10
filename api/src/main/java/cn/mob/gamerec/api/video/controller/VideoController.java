@@ -6,8 +6,8 @@ import cn.mob.gamerec.api.video.domain.Video;
 import cn.mob.gamerec.util.JSONResult;
 import com.lamfire.utils.JSON;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
@@ -37,7 +37,7 @@ public class VideoController {
 
     @RequestMapping("/getVideosByUserId")
     @ResponseBody
-    public String getVideosByUserId(@PathVariable String userid, @PathVariable int pageindex, @PathVariable int pagesize) {
+    public String getVideosByUserId(@RequestParam String userid, @RequestParam int pageindex, @RequestParam int pagesize) {
         List<Video> videos = videoDao.findByUserId(userid, pageindex, pagesize);
         long total = videoDao.countByUserId(userid);
         return JSONResult.getResult().putResult(JSON.parseFromObject(videos)).putTotal(total).toString();
@@ -53,7 +53,7 @@ public class VideoController {
      */
     @RequestMapping("/getVideosByAppKey")
     @ResponseBody
-    public String getVideosByAppKey(@PathVariable String appkey, @PathVariable int pageindex, @PathVariable int pagesize) {
+    public String getVideosByAppKey(@RequestParam String appkey, @RequestParam int pageindex, @RequestParam int pagesize) {
         List<Video> videos = videoDao.findByAppKey(appkey, pageindex, pagesize);
         long total = videoDao.countByAppKey(appkey);
         return JSONResult.getResult().putResult(JSON.parseFromObject(videos)).putTotal(total).toString();
@@ -69,7 +69,7 @@ public class VideoController {
      */
     @RequestMapping("/getPublicVideosByAppKey")
     @ResponseBody
-    public String getPublicVideosByAppKey(@PathVariable String appkey, @PathVariable int pageindex, @PathVariable int pagesize) {
+    public String getPublicVideosByAppKey(@RequestParam String appkey, @RequestParam int pageindex, @RequestParam int pagesize) {
         List<Video> videos = videoDao.findByAppKey(appkey, 1, pageindex, pagesize);
         long total = videoDao.countByAppKey(appkey, 1);
         return JSONResult.getResult().putResult(JSON.parseFromObject(videos)).putTotal(total).toString();
@@ -84,7 +84,7 @@ public class VideoController {
      */
     @RequestMapping("/getPublicVideos")
     @ResponseBody
-    public String getPublicVideos(@PathVariable int pageindex, @PathVariable int pagesize) {
+    public String getPublicVideos(@RequestParam int pageindex, @RequestParam int pagesize) {
         List<Video> videos = videoDao.findByStatus(1, pageindex, pagesize);
         long total = videoDao.countByStatus(1);
         return JSONResult.getResult().putResult(JSON.parseFromObject(videos)).putTotal(total).toString();
@@ -98,7 +98,7 @@ public class VideoController {
      */
     @RequestMapping("/view")
     @ResponseBody
-    public String view(@PathVariable String id) {
+    public String view(@RequestParam String id) {
         Video video = videoDao.findByPrimaryKey(id);
         return JSONResult.getResult().putResult(JSON.parseFromObject(video)).toString();
     }
@@ -113,10 +113,8 @@ public class VideoController {
      */
     @RequestMapping("/add")
     @ResponseBody
-    public String add(@PathVariable String id, @PathVariable String userid) {
-
+    public String add(@RequestParam String id, @RequestParam String userid) {
         JSONResult result = JSONResult.getResult();
-
         return result.toString();
     }
 

@@ -7,8 +7,8 @@ import cn.mob.gamerec.util.JSONResult;
 import cn.mob.gamerec.util.MD5;
 import cn.mob.gamerec.util.RedisPool;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import redis.clients.jedis.ShardedJedis;
 
@@ -29,8 +29,8 @@ public class CommentController {
 
     @RequestMapping("/add")
     @ResponseBody
-    public String add(@PathVariable String userid, @PathVariable String videoid, @PathVariable String content,
-                      @PathVariable String plat) {
+    public String add(@RequestParam String userid, @RequestParam String videoid, @RequestParam String content,
+                      @RequestParam String plat) {
         Comment comment = new Comment();
         comment.setUserid(userid);
         comment.setVideoid(videoid);
@@ -49,7 +49,7 @@ public class CommentController {
      */
     @RequestMapping("/like")
     @ResponseBody
-    public String like(@PathVariable String userid, @PathVariable String commentid) {
+    public String like(@RequestParam String userid, @RequestParam String commentid) {
         //redis
         JSONResult result = JSONResult.getResult();
         String key = MD5.hash(userid + R.SPLIT + commentid);
@@ -63,7 +63,7 @@ public class CommentController {
 
     @RequestMapping("/isLike")
     @ResponseBody
-    public String isLike(@PathVariable String userid, @PathVariable String commentid) {
+    public String isLike(@RequestParam String userid, @RequestParam String commentid) {
         //redis
         JSONResult result = JSONResult.getResult();
         String key = MD5.hash(userid + R.SPLIT + commentid);

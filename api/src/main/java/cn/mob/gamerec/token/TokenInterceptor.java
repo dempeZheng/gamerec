@@ -2,6 +2,7 @@ package cn.mob.gamerec.token;
 
 import cn.mob.gamerec.util.EhCache;
 import cn.mob.gamerec.util.EhCacheFactory;
+import cn.mob.gamerec.util.ErrorMsg;
 import org.apache.log4j.Logger;
 import org.springframework.util.StringUtils;
 import org.springframework.web.servlet.HandlerInterceptor;
@@ -20,18 +21,21 @@ public class TokenInterceptor implements HandlerInterceptor {
 
     private final static EhCache tokenCache = EhCacheFactory.newCache("tokenCache", 1000, 2 * 60, 2 * 60);
 
+
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
 
-        LOGGER.info("preHandle interceptor");
+        //LOGGER.info("preHandle interceptor");
         request.getParameterNames();
         String token = request.getHeader("token");
-        if(StringUtils.isEmpty(token)){
+        if (StringUtils.isEmpty(token)) {
             LOGGER.info("token is null");
+            response.sendError(414, ErrorMsg.get(414));
             return false;
         }
-        if(tokenCache.get(token)==null){
+        if (tokenCache.get(token) == null) {
             LOGGER.info("token is not exists");
+            response.sendError(415, ErrorMsg.get(415));
             return false;
         }
         return true;

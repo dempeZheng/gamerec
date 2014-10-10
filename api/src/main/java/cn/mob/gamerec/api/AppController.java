@@ -4,8 +4,8 @@ import cn.mob.gamerec.util.JSONResult;
 import cn.mob.gamerec.util.ThirdParty;
 import com.lamfire.utils.JSON;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
@@ -20,7 +20,7 @@ public class AppController {
     //@Cacheable(value="appCache",key="'app:view' + #appkey")
     @RequestMapping("/view")
     @ResponseBody
-    public String view(@PathVariable String appkey) {
+    public String view(@RequestParam String appkey) {
         return JSONResult.getResult().putResult(JSON.parseFromJSONString(ThirdParty.getAppInfo())).toString();
     }
 }
