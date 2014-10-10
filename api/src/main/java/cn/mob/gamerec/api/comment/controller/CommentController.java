@@ -69,6 +69,5 @@ public class CommentController {
         String key = MD5.hash(userid + R.SPLIT + commentid);
         result.put("isLike", jedis.exists(key));
         return result.toString();
-
     }
 }

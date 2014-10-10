@@ -9,7 +9,6 @@ import org.springframework.stereotype.Component;
  * @author : Dempe
  * @version 1.0 date : 2014/9/29
  */
-
 @Component
 public class CommentDao extends DAOSupport<Comment, String> {
     public CommentDao() {

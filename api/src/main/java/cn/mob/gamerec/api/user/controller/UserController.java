@@ -40,10 +40,6 @@ public class UserController {
         return JSONResult.getResult().putResult(JSON.parseFromObject(user)).toString();
     }
 
-    /**
-     * @param id
-     * @return
-     */
     @RequestMapping("/view")
     @ResponseBody
     public String view(@PathVariable String id) {
