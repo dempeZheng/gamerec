@@ -2,6 +2,7 @@ package cn.mob.gamerec.recommend
 import org.apache.spark.mllib.recommendation.ALS
 import org.apache.spark.mllib.recommendation.Rating
 import org.apache.spark.{SparkContext, SparkConf}
+import org.apache.spark.SparkContext._
 
 /**
  * Collaborative filtering
@@ -12,7 +13,7 @@ object CFRecommend {
   def main (args: Array[String]) {
     val conf = new SparkConf()
     conf.setSparkHome(System.getenv("SPARK_HOME"))
-    conf.setAppName("SumReport")
+    conf.setAppName("gameRec recommend")
     val sc = new SparkContext(conf)
     val data = sc.textFile("data/mllib/als/test.data")
     val ratings = data.map(_.split(',') match { case Array(user, item, rate) =>
