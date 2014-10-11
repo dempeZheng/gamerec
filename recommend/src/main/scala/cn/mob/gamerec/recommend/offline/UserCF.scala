@@ -1,21 +1,21 @@
-package cn.mob.gamerec.recommend
+package cn.mob.gamerec.recommend.offline
 
-import org.apache.spark.mllib.recommendation.ALS
-import org.apache.spark.mllib.recommendation.Rating
 import org.apache.spark.{SparkContext, SparkConf}
+import org.apache.spark.mllib.recommendation.{ALS, Rating}
 import org.apache.spark.SparkContext._
 
 /**
- * Collaborative filtering
- * @version 1.0 date : 2014/10/10
+ * 基于用户协同过滤
+ * @version 1.0 date : 2014/10/11
  * @author : Dempe 
  */
-object CFRecommend {
+object UserCF {
+
   def main(args: Array[String]) {
     val conf = new SparkConf()
+    conf.setMaster("local[2]")
     conf.setSparkHome(System.getenv("SPARK_HOME"))
     conf.setAppName("gameRec recommend")
-    conf.setMaster("local[2]")
     val sc = new SparkContext(conf)
     val data = sc.textFile("data/mllib/als/test.data")
     val ratings = data.map(_.split(',') match {
@@ -49,5 +49,6 @@ object CFRecommend {
     }.mean()
     println("Mean Squared Error = " + MSE)
   }
+
 
 }

@@ -17,15 +17,14 @@ import java.util.Properties;
 public class KafkaStreamUtil {
     private final ConsumerConnector consumer;
     private final String topic;
-    ConsumerIterator<byte[], byte[]> it ;
-    public KafkaStreamUtil(String topic)
-    {
+    ConsumerIterator<byte[], byte[]> it;
+
+    public KafkaStreamUtil(String topic) {
         consumer = kafka.consumer.Consumer.createJavaConsumerConnector(createConsumerConfig());
         this.topic = topic;
     }
 
-    private static ConsumerConfig createConsumerConfig()
-    {
+    private static ConsumerConfig createConsumerConfig() {
         Properties props = new Properties();
         props.put("zookeeper.connect", KafkaProperties.zkConnect);
         props.put("group.id", KafkaProperties.groupId);
@@ -38,12 +37,11 @@ public class KafkaStreamUtil {
     }
 
 
-
     public kafka.consumer.KafkaStream<byte[], byte[]> getStream() {
         Map<String, Integer> topicCountMap = new HashMap<String, Integer>();
         topicCountMap.put(topic, new Integer(1));
         Map<String, List<kafka.consumer.KafkaStream<byte[], byte[]>>> consumerMap = consumer.createMessageStreams(topicCountMap);
-        kafka.consumer.KafkaStream<byte[], byte[]> stream =  consumerMap.get(topic).get(0);
+        kafka.consumer.KafkaStream<byte[], byte[]> stream = consumerMap.get(topic).get(0);
         return stream;
     }
 

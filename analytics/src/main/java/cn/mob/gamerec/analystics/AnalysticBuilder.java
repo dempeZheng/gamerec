@@ -7,15 +7,15 @@ package cn.mob.gamerec.analystics;
 public class AnalysticBuilder {
 
     private String metadataBrokerList = "localhost:9092";
-    private String serializerClass ="kafka.serializer.StringEncoder";
+    private String serializerClass = "kafka.serializer.StringEncoder";
     private String topic = "event";
     private int syncDuration = 5;
     private String dbServers = "127.0.0.1:27001";
     private String dbName = "SHAREREC_VIDEO";
     private String zookeeperConnect = "";
-    private String groupId ="";
+    private String groupId = "";
     private int zookeeperSessionTimeoutMs = 400;
-    private int zookeeperSyncTimeMs =200;
+    private int zookeeperSyncTimeMs = 200;
 
     public String getMetadataBrokerList() {
         return metadataBrokerList;
