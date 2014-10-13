@@ -1,6 +1,7 @@
 package cn.mob.gamerec.analystics;
 
 import cn.mob.gamerec.analystics.analysis.Analysis;
+import cn.mob.gamerec.analystics.analysis.KafkaStreamUtil;
 import com.alibaba.fastjson.JSONObject;
 import org.apache.log4j.Logger;
 
@@ -26,7 +27,7 @@ public class Analystic {
 
     }
 
-    // private static KafkaStream stream = new KafkaStreamUtil(R.EVENT_TOPIC).getStream();
+     //private static KafkaStream stream = new KafkaStreamUtil(R.EVENT_TOPIC).getStream();
 
 
     public static void main(String args[]) {

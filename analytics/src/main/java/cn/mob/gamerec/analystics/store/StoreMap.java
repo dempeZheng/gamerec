@@ -1,5 +1,7 @@
 package cn.mob.gamerec.analystics.store;
 
+import cn.mob.gamerec.analystics.Config;
+import cn.mob.gamerec.analystics.R;
 import org.apache.log4j.Logger;
 
 import java.util.Map;
@@ -15,13 +17,16 @@ public abstract class StoreMap implements Command {
 
     public static final Logger LOGGER = Logger.getLogger(StoreMap.class);
 
+    private final static String DEF_SLEEP_TIME = "5000";
+
     protected static Map<String, Integer> storeMap = new ConcurrentHashMap<String, Integer>();
 
     private Thread _syncer;
-    private int sleepTime = 5000;
+
     private Map<String, Integer> syncMap;
 
     public StoreMap() {
+        final int sleepTime = Integer.parseInt(Config.getString(R.SLEEP_TIME,DEF_SLEEP_TIME));
         _syncer = new Thread(new Runnable() {
             @Override
             public void run() {
