@@ -10,16 +10,17 @@ import java.util.Map;
  * @version 1.0 date : 2014/9/30
  */
 public class DownLoadStoreMap extends StoreMap {
+
     public static DownLoadStoreMap instance;
-    private final static  SyncDao syncDao = new MongoSyncDao();
+    private final static SyncDao syncDao = new MongoSyncDao();
 
     private DownLoadStoreMap() {
         super();
-        System.out.println("start sync.freq ");
     }
 
     @Override
     public void sync(Map<String, Integer> storeMap) {
+        LOGGER.debug("sync to mongodb start ...");
         syncDao.sycn4Map(storeMap);
     }
 

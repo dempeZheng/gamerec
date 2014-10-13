@@ -10,8 +10,9 @@ import java.util.Map;
  * @version 1.0 date : 2014/9/30
  */
 public class ShareStoreMap extends StoreMap {
+
     public static ShareStoreMap instance;
-    private final static  SyncDao syncDao = new MongoSyncDao();
+    private final static SyncDao syncDao = new MongoSyncDao();
 
     private ShareStoreMap() {
         super();
@@ -19,6 +20,7 @@ public class ShareStoreMap extends StoreMap {
 
     @Override
     public void sync(Map<String, Integer> storeMap) {
+        LOGGER.debug("sync to mongodb start ...");
         syncDao.sycn4Map(storeMap);
     }
 

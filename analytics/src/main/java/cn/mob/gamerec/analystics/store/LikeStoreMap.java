@@ -5,7 +5,6 @@ import cn.mob.gamerec.analystics.sync.TestSyncDao;
 import org.apache.log4j.Logger;
 
 import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * @author : Dempe
@@ -29,14 +28,10 @@ public class LikeStoreMap extends StoreMap {
         return instance;
     }
 
-    public void clearStoreDB() {
-        storeMap = new ConcurrentHashMap<String, Integer>();
-    }
-
-
     @Override
     public void sync(Map<String, Integer> storeMap) {
-         syncDao.sycn4Map(storeMap);
+        LOGGER.debug("sync to mongodb start ...");
+        syncDao.sycn4Map(storeMap);
     }
 
 }

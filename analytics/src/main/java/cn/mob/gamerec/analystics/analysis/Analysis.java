@@ -14,11 +14,10 @@ import com.alibaba.fastjson.JSONObject;
 public class Analysis {
 
     public static void streaming(String message) {
-        JSONObject json = JSONObject.parseObject(message);
 
-        //JSON json = JSON.parseFromJSONString(message);
-        int et = (Integer) json.get(R.EVENT_TYPE);
-        String eventMessage = (String) json.get(R.EVENT_MESSAGE);
+        JSONObject json = JSONObject.parseObject(message);
+        int et = json.getInteger(R.EVENT_TYPE);
+        String eventMessage = json.getString(R.UID);
 
         switch (et) {
             case R.DOWNLOAD_TYPE_CODE:

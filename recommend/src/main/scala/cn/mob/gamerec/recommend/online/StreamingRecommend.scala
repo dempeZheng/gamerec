@@ -23,7 +23,7 @@ object StreamingRecommend extends App {
   sparkConf.set("spark.executor.memory", "2g")
 
   val Array(zkQuorum, group, topics, numThreads) = args
-  val ssc = new StreamingContext(sparkConf, Seconds(2))
+  val ssc = new StreamingContext(sparkConf, Seconds(10))
   ssc.checkpoint("checkpoint")
 
   val topicMap = topics.split(",").map((_, numThreads.toInt)).toMap

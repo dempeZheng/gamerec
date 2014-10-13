@@ -11,6 +11,7 @@
     <modules>
         <module>recommend</module>
         <module>analytics</module>
+        <module>queue</module>
     </modules>
 
     <!--<parent>-->

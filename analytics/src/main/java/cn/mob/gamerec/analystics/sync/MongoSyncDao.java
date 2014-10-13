@@ -5,6 +5,8 @@ package cn.mob.gamerec.analystics.sync;
  * @version 1.0 date : 2014/10/13
  */
 
+import cn.mob.gamerec.analystics.Config;
+import cn.mob.gamerec.analystics.R;
 import com.mongodb.*;
 import org.apache.log4j.Logger;
 
@@ -12,15 +14,15 @@ import java.net.UnknownHostException;
 import java.util.Map;
 
 /**
- * Created by Administrator on 2014/8/12.
+ * @author : Dempe
+ * @version 1.0 date : 2014/10/13
  */
 public class MongoSyncDao implements SyncDao {
 
     public static final Logger LOGGER = Logger.getLogger(MongoSyncDao.class);
 
-    private final static String DEF_MONGO_HOST = "127.0.0.1";
-    private final static int DEF_MONGO_PORT = 27017;
-    private final static String DEF_MONGOD_DB = "report";
+    private final static String DEF_MONGO_URL = "127.0.0.1:27017";
+    private final static String DEF_MONGOD_DB = "game_rec";
 
 
     private DB db;
@@ -29,15 +31,15 @@ public class MongoSyncDao implements SyncDao {
 
 
     public MongoSyncDao() {
-         this(DEF_MONGO_HOST, DEF_MONGO_PORT);
+        this(Config.getString(R.MONGO_URL, DEF_MONGO_URL));
     }
 
-    public MongoSyncDao(String host, int port) {
+    public MongoSyncDao(String url) {
         try {
-            mongo = new Mongo(host, port);
+            mongo = new Mongo(url);
             db = mongo.getDB(DEF_MONGOD_DB);
         } catch (UnknownHostException e) {
-            LOGGER.error(host + ":" + port + " unknown host error", e);
+            LOGGER.error(url + " unknown host error", e);
         }
     }
 
@@ -47,8 +49,7 @@ public class MongoSyncDao implements SyncDao {
 
     @Override
     public void sycn4Map(Map<String, Integer> storeMap) {
-
-        LOGGER.info("sync map to mongodb now");
+        LOGGER.debug("sync map to mongodb now");
         LOGGER.info("sync todo");
 
     }

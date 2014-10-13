@@ -6,6 +6,8 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 /**
+ * 每个storeMap享有一个后台同步线程，主要负责数据定时同步
+ *
  * @author : Dempe
  * @version 1.0 date : 2014/9/30
  */
@@ -15,12 +17,12 @@ public abstract class StoreMap implements Command {
 
     protected static Map<String, Integer> storeMap = new ConcurrentHashMap<String, Integer>();
 
-    // private Thread _syncer;
-    private int sleepTime = 1000;
+    private Thread _syncer;
+    private int sleepTime = 5000;
     private Map<String, Integer> syncMap;
 
     public StoreMap() {
-        Thread _syncer = new Thread(new Runnable() {
+        _syncer = new Thread(new Runnable() {
             @Override
             public void run() {
                 try {
@@ -36,7 +38,7 @@ public abstract class StoreMap implements Command {
             }
         });
         _syncer.setDaemon(true);
-        LOGGER.info(this.getClass().getName() + " sync thread start");
+        LOGGER.info(this.getClass().getName() + " syncThread start");
         _syncer.start();
     }
 

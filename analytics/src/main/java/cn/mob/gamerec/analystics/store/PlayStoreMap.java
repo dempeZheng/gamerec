@@ -12,7 +12,7 @@ import java.util.Map;
 public class PlayStoreMap extends StoreMap {
 
     public static PlayStoreMap instance;
-    private final static  SyncDao syncDao = new MongoSyncDao();
+    private final static SyncDao syncDao = new MongoSyncDao();
 
     private PlayStoreMap() {
         super();
@@ -21,6 +21,7 @@ public class PlayStoreMap extends StoreMap {
 
     @Override
     public void sync(Map<String, Integer> storeMap) {
+        LOGGER.debug("sync to mongodb start ...");
         syncDao.sycn4Map(storeMap);
     }
 

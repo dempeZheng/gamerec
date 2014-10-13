@@ -1,7 +1,10 @@
 package cn.mob.gamerec.analystics;
 
 import cn.mob.gamerec.analystics.analysis.Analysis;
+import com.alibaba.fastjson.JSONObject;
 import org.apache.log4j.Logger;
+
+import java.util.UUID;
 
 /**
  * @author : Dempe
@@ -14,15 +17,13 @@ public class Analystic {
     private String metadataBrokerList;
     private String topic;
     private int syncDuration;
-    private String dbServers;
-    private String dbName;
+
 
     public Analystic(AnalysticBuilder builder) {
         this.metadataBrokerList = builder.getMetadataBrokerList();
         this.topic = builder.getTopic();
         this.syncDuration = builder.getSyncDuration();
-        this.dbServers = builder.getDbServers();
-        this.dbName = builder.getDbName();
+
     }
 
     // private static KafkaStream stream = new KafkaStreamUtil(R.EVENT_TOPIC).getStream();
@@ -37,11 +38,7 @@ public class Analystic {
         }*/
 
         while (true) {
-            com.alibaba.fastjson.JSONObject jsonObject = new com.alibaba.fastjson.JSONObject();
-            jsonObject.put(R.EVENT_TYPE, R.LIKE_TYPE_CODE);
-            jsonObject.put(R.EVENT_MESSAGE, "test message");
-            String message = jsonObject.toString();
-            Analysis.streaming(message);
+            Analysis.streaming(getTestMessage());
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
@@ -49,6 +46,13 @@ public class Analystic {
             }
         }
 
+    }
+
+    private static String getTestMessage() {
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put(R.EVENT_TYPE, R.LIKE_TYPE_CODE);
+        jsonObject.put(R.UID, UUID.randomUUID());
+        return jsonObject.toString();
     }
 
 
