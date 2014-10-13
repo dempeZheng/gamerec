@@ -1,9 +1,6 @@
 package cn.mob.gamerec.recommend.example
 
 import org.apache.spark.{SparkContext, SparkConf}
-import org.apache.spark.mllib.linalg.Vectors
-import org.apache.spark.mllib.linalg.Vectors
-import org.apache.spark.mllib.regression.LabeledPoint
 
 /**
  * @version 1.0 date : 2014/10/11
