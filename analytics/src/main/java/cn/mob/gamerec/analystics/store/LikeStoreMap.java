@@ -1,14 +1,25 @@
 package cn.mob.gamerec.analystics.store;
 
+import cn.mob.gamerec.analystics.sync.SyncDao;
+import cn.mob.gamerec.analystics.sync.TestSyncDao;
+import org.apache.log4j.Logger;
+
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+
 /**
  * @author : Dempe
  * @version 1.0 date : 2014/9/30
  */
-public class LikeStoreMap extends StoreMap implements Sync {
+public class LikeStoreMap extends StoreMap {
+
+    public static final Logger LOGGER = Logger.getLogger(LikeStoreMap.class);
     public static LikeStoreMap instance;
 
+    private final static SyncDao syncDao = new TestSyncDao();
+
     private LikeStoreMap() {
-        sync();
+        super();
     }
 
     public static LikeStoreMap getInstance() {
@@ -18,15 +29,14 @@ public class LikeStoreMap extends StoreMap implements Sync {
         return instance;
     }
 
-    @Override
-    public void freq() {
-
+    public void clearStoreDB() {
+        storeMap = new ConcurrentHashMap<String, Integer>();
     }
 
+
     @Override
-    public void sync() {
-
-        //启动一个线程同步
-
+    public void sync(Map<String, Integer> storeMap) {
+         syncDao.sycn4Map(storeMap);
     }
+
 }

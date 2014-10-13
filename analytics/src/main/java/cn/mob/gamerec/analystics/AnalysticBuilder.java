@@ -14,8 +14,7 @@ public class AnalysticBuilder {
     private String dbName = "SHAREREC_VIDEO";
     private String zookeeperConnect = "";
     private String groupId = "";
-    private int zookeeperSessionTimeoutMs = 400;
-    private int zookeeperSyncTimeMs = 200;
+
 
     public String getMetadataBrokerList() {
         return metadataBrokerList;

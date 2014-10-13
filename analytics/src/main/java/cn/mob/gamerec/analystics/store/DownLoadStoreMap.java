@@ -1,15 +1,26 @@
 package cn.mob.gamerec.analystics.store;
 
+import cn.mob.gamerec.analystics.sync.MongoSyncDao;
+import cn.mob.gamerec.analystics.sync.SyncDao;
+
+import java.util.Map;
+
 /**
  * @author : Dempe
  * @version 1.0 date : 2014/9/30
  */
-public class DownLoadStoreMap extends StoreMap implements Sync {
+public class DownLoadStoreMap extends StoreMap {
     public static DownLoadStoreMap instance;
+    private final static  SyncDao syncDao = new MongoSyncDao();
 
     private DownLoadStoreMap() {
+        super();
         System.out.println("start sync.freq ");
-        sync();
+    }
+
+    @Override
+    public void sync(Map<String, Integer> storeMap) {
+        syncDao.sycn4Map(storeMap);
     }
 
     public static DownLoadStoreMap getInstance() {
@@ -19,16 +30,5 @@ public class DownLoadStoreMap extends StoreMap implements Sync {
         return instance;
     }
 
-    @Override
-    public void freq() {
 
-    }
-
-    @Override
-    public void sync() {
-
-        System.out.println("sync to mongodb now");
-        //启动一个线程同步
-
-    }
 }
