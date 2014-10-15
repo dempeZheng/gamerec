@@ -1,7 +1,6 @@
 package cn.mob.gamerec.queue.server;
 
-import com.lamfire.utils.StringUtils;
-import com.lamfire.utils.URLUtils;
+import org.apache.commons.lang.StringUtils;
 
 import java.io.File;
 import java.io.FileNotFoundException;

@@ -1,6 +1,6 @@
 package cn.mob.gamerec.queue.server;
 
-import com.lamfire.logger.Logger;
+import org.apache.log4j.Logger;
 import org.jboss.netty.buffer.ChannelBuffer;
 import org.jboss.netty.channel.*;
 import org.jboss.netty.handler.codec.frame.TooLongFrameException;
