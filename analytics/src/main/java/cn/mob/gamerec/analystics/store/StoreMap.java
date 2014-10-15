@@ -26,7 +26,7 @@ public abstract class StoreMap implements Command {
     private Map<String, Integer> syncMap;
 
     public StoreMap() {
-        final int sleepTime = Integer.parseInt(Config.getString(R.SLEEP_TIME,DEF_SLEEP_TIME));
+        final int sleepTime = Integer.parseInt(Config.getString(R.SLEEP_TIME, DEF_SLEEP_TIME));
         _syncer = new Thread(new Runnable() {
             @Override
             public void run() {
