@@ -15,6 +15,7 @@ import java.util.concurrent.ConcurrentHashMap;
  */
 public abstract class StoreMap implements Command {
 
+
     public static final Logger LOGGER = Logger.getLogger(StoreMap.class);
 
     private final static String DEF_SLEEP_TIME = "5000";
@@ -22,6 +23,7 @@ public abstract class StoreMap implements Command {
     protected static Map<String, Integer> storeMap = new ConcurrentHashMap<String, Integer>();
 
     private Thread _syncer;
+
 
     private Map<String, Integer> syncMap;
 
