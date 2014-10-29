@@ -2,22 +2,22 @@ gameRec
 =======
  <br/>
 
-Analystics 统计
--------------
+Common Analysis 统计
+---------------------
 
 ### countEvent protocol:
-        {
-            type : 1,
-            key : "$appkey:appkeyValue,field:fieldValue,plat:platValue",
-            date : "[yyyyMM,yyyyMMdd,yyyy]"
-        }
+    {
+        type : 1,
+        key : "$appkey:appkeyValue,field:fieldValue,plat:platValue",
+        date : "[yyyyMM,yyyyMMdd,yyyy]"
+    }
 ### uniqueEvent protocol:
-        {
-            type : 2,
-            id : "uniqueID",
-            key : "$appkey:appkeyValue,field:fieldValue,plat:platValue",
-            date : "[yyyyMM,yyyyMMdd,yyyy]"
-        }
+    {
+        type : 2,
+        id : "uniqueID",
+        key : "$appkey:appkeyValue,field:fieldValue,plat:platValue",
+        date : "[yyyyMM,yyyyMMdd,yyyy]"
+    }
 ### rankEvent protocol:
     {
           type : 3,
@@ -34,8 +34,8 @@ Analystics 统计
         date : "[yyyyMM,yyyyMMdd,yyyy]"
     }
 
-### link
- #### type: count=>1, unique=>2, rank=>3, uniqueRank=>4
+### 注释:
+  type: count=>1, unique=>2, rank=>3, uniqueRank=>4
 api 接口
 -------------
 recommend 推荐
