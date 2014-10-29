@@ -5,7 +5,7 @@ gameRec
 Analystics 统计
 -------------
 
-###  countEvent protocol:
+### countEvent protocol:
  
   {
       type : 1,
@@ -34,8 +34,7 @@ Analystics 统计
       key : "$appkey:appkeyValue,field:fieldValue,plat:platValue",
       date : "[yyyyMM,yyyyMMdd,yyyy]"
   }
-  
- 
+
 ### link
  #### type: count=>1, unique=>2, rank=>3, uniqueRank=>4
 api 接口
