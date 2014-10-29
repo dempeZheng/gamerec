@@ -6,7 +6,6 @@ Analystics 统计
 -------------
 
 ### countEvent protocol:
- 
   {
       type : 1,
       key : "$appkey:appkeyValue,field:fieldValue,plat:platValue",
