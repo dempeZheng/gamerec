@@ -26,6 +26,7 @@ public class TokenInterceptor implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
 
         //LOGGER.info("preHandle interceptor");
+
         request.getParameterNames();
         String token = request.getHeader("token");
         if (StringUtils.isEmpty(token)) {

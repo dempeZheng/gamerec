@@ -4,6 +4,7 @@ import org.apache.spark.SparkConf
 import org.apache.spark.streaming.{Seconds, StreamingContext}
 import org.apache.spark.mllib.recommendation.{ALS, Rating}
 import org.apache.spark.streaming.kafka.KafkaUtils
+import org.apache.spark.SparkContext._
 
 /**
  *
