@@ -1,31 +1,31 @@
-gameRec
+GameRec
 =======
  <br/>
 
 Common Analysis 统计
 ---------------------
 
-#### countEvent protocol:
+##### countEvent protocol:
     {
         type : 1,
         key : "$appkey:appkeyValue,field:fieldValue,plat:platValue",
         date : "[yyyyMM,yyyyMMdd,yyyy]"
     }
-#### uniqueEvent protocol:
+##### uniqueEvent protocol:
     {
         type : 2,
         id : "uniqueID",
         key : "$appkey:appkeyValue,field:fieldValue,plat:platValue",
         date : "[yyyyMM,yyyyMMdd,yyyy]"
     }
-#### rankEvent protocol:
+##### rankEvent protocol:
     {
           type : 3,
           rank : "version or model",
           key : "$appkey:appkeyValue,field:fieldValue,plat:platValue",
           date : "[yyyyMM,yyyyMMdd,yyyy]"
     }
-#### uniqueRankEvent protocol:
+##### uniqueRankEvent protocol:
     {
         type : 4,
         rank : "version",
@@ -34,15 +34,15 @@ Common Analysis 统计
         date : "[yyyyMM,yyyyMMdd,yyyy]"
     }
 
-##### 注释:
+###### 注释:
   type: count=>1, unique=>2, rank=>3, uniqueRank=>4
 api 接口
 -------------
 recommend 推荐
 -------------
-userCF离线结果<br/>
-itemCF离线结果<br/>
-spark streaming实时推荐<br/>
+####userCF离线结果<br/>
+####itemCF离线结果<br/>
+####spark streaming实时推荐<br/>
   
 profile
 -----------------------------------
