@@ -19,12 +19,12 @@ Analystics 统计
             date : "[yyyyMM,yyyyMMdd,yyyy]"
         }
 ### rankEvent protocol:
-        {
-              type : 3,
-              rank : "version or model",
-              key : "$appkey:appkeyValue,field:fieldValue,plat:platValue",
-              date : "[yyyyMM,yyyyMMdd,yyyy]"
-        }
+    {
+          type : 3,
+          rank : "version or model",
+          key : "$appkey:appkeyValue,field:fieldValue,plat:platValue",
+          date : "[yyyyMM,yyyyMMdd,yyyy]"
+    }
 ### uniqueRankEvent protocol:
     {
         type : 4,
