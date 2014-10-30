@@ -2,7 +2,7 @@ package cn.mob.gamerec.api;
 
 import cn.mob.gamerec.util.JSONResult;
 import cn.mob.gamerec.util.ThirdParty;
-import com.lamfire.utils.JSON;
+import com.alibaba.fastjson.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -21,6 +21,6 @@ public class AppController {
     @RequestMapping("/view")
     @ResponseBody
     public String view(@RequestParam String appkey) {
-        return JSONResult.getResult().putResult(JSON.parseFromJSONString(ThirdParty.getAppInfo())).toString();
+        return JSONResult.getResult().putResult(JSONObject.toJSONString(ThirdParty.getAppInfo())).toString();
     }
 }

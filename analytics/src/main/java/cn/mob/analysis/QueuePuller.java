@@ -14,6 +14,7 @@ import java.util.concurrent.TimeUnit;
  * Time: 下午7:39
  * To change this template use File | Settings | File Templates.
  */
+
 public class QueuePuller implements Runnable {
     private final static Logger LOGGER = Logger.getLogger(QueuePuller.class);
     private ReplySnake snake;

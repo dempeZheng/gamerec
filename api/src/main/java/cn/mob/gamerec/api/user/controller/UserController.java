@@ -5,7 +5,7 @@ import cn.mob.gamerec.api.user.dao.UserDao;
 import cn.mob.gamerec.api.user.domain.User;
 import cn.mob.gamerec.util.JSONResult;
 import cn.mob.gamerec.util.MD5;
-import com.lamfire.utils.JSON;
+import com.alibaba.fastjson.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -31,21 +31,21 @@ public class UserController {
 
         List<User> users = userDao.findByAppkey(appkey, pageindex, pagesize);
         long total = userDao.countAllByAppkey(appkey);
-        return JSONResult.getResult().putResult(JSON.parseFromObject(users)).putTotal(total).toString();
+        return JSONResult.getResult().putResult(JSONObject.toJSONString(users)).putTotal(total).toString();
     }
 
     @RequestMapping("/login")
     @ResponseBody
     public String login(@RequestParam String nickname, @RequestParam String password) {
         User user = userDao.findByNicknameAndPassword(nickname, MD5.hash(password));
-        return JSONResult.getResult().putResult(JSON.parseFromObject(user)).toString();
+        return JSONResult.getResult().putResult(JSONObject.toJSONString(user)).toString();
     }
 
     @RequestMapping("/view")
     @ResponseBody
     public String view(@RequestParam String id) {
         User user = userDao.findByPrimaryKey(id);
-        return JSONResult.getResult().putResult(JSON.parseFromObject(user)).toString();
+        return JSONResult.getResult().putResult(JSONObject.toJSONString(user)).toString();
     }
 
     @RequestMapping("/updateStatus")

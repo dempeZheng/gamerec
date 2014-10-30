@@ -31,6 +31,7 @@ public class QPSMonitor {
             }
         };
 
+
         Threads.scheduleWithFixedDelay(statusThread, 1, 1, TimeUnit.SECONDS);
     }
 

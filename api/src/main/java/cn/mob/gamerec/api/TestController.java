@@ -1,13 +1,11 @@
 package cn.mob.gamerec.api;
 
 import com.alibaba.fastjson.JSONObject;
-import com.lamfire.utils.JSON;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.DispatcherServlet;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -19,19 +17,19 @@ import javax.servlet.http.HttpServletRequest;
 @RequestMapping("/test")
 public class TestController {
 
-    @RequestMapping(value ="/hello",method= RequestMethod.POST)
+    @RequestMapping(value = "/hello", method = RequestMethod.POST)
     @ResponseBody
-    public String hello(@RequestBody JSONObject json){
+    public String hello(@RequestBody JSONObject json) {
 
         System.out.println(json);
 
         return "hello";
     }
-    //DispatcherServlet
-    @RequestMapping(value ="/aaa",method= RequestMethod.POST)
-    @ResponseBody
-    public String aa(HttpServletRequest request){
 
+    //DispatcherServlet
+    @RequestMapping(value = "/aaa", method = RequestMethod.POST)
+    @ResponseBody
+    public String aa(HttpServletRequest request) {
 
 
         return "hello";

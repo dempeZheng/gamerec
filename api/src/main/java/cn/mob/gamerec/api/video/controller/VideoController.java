@@ -4,7 +4,7 @@ import cn.mob.gamerec.api.user.dao.UserDao;
 import cn.mob.gamerec.api.video.dao.VideoDao;
 import cn.mob.gamerec.api.video.domain.Video;
 import cn.mob.gamerec.util.JSONResult;
-import com.lamfire.utils.JSON;
+import com.alibaba.fastjson.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -40,7 +40,7 @@ public class VideoController {
     public String getVideosByUserId(@RequestParam String userid, @RequestParam int pageindex, @RequestParam int pagesize) {
         List<Video> videos = videoDao.findByUserId(userid, pageindex, pagesize);
         long total = videoDao.countByUserId(userid);
-        return JSONResult.getResult().putResult(JSON.parseFromObject(videos)).putTotal(total).toString();
+        return JSONResult.getResult().putResult(JSONObject.toJSONString(videos)).putTotal(total).toString();
     }
 
     /**
@@ -56,7 +56,7 @@ public class VideoController {
     public String getVideosByAppKey(@RequestParam String appkey, @RequestParam int pageindex, @RequestParam int pagesize) {
         List<Video> videos = videoDao.findByAppKey(appkey, pageindex, pagesize);
         long total = videoDao.countByAppKey(appkey);
-        return JSONResult.getResult().putResult(JSON.parseFromObject(videos)).putTotal(total).toString();
+        return JSONResult.getResult().putResult(JSONObject.toJSONString(videos)).putTotal(total).toString();
     }
 
     /**
@@ -72,7 +72,7 @@ public class VideoController {
     public String getPublicVideosByAppKey(@RequestParam String appkey, @RequestParam int pageindex, @RequestParam int pagesize) {
         List<Video> videos = videoDao.findByAppKey(appkey, 1, pageindex, pagesize);
         long total = videoDao.countByAppKey(appkey, 1);
-        return JSONResult.getResult().putResult(JSON.parseFromObject(videos)).putTotal(total).toString();
+        return JSONResult.getResult().putResult(JSONObject.toJSONString(videos)).putTotal(total).toString();
     }
 
     /**
@@ -87,7 +87,7 @@ public class VideoController {
     public String getPublicVideos(@RequestParam int pageindex, @RequestParam int pagesize) {
         List<Video> videos = videoDao.findByStatus(1, pageindex, pagesize);
         long total = videoDao.countByStatus(1);
-        return JSONResult.getResult().putResult(JSON.parseFromObject(videos)).putTotal(total).toString();
+        return JSONResult.getResult().putResult(JSONObject.toJSONString(videos)).putTotal(total).toString();
     }
 
     /**
@@ -100,7 +100,7 @@ public class VideoController {
     @ResponseBody
     public String view(@RequestParam String id) {
         Video video = videoDao.findByPrimaryKey(id);
-        return JSONResult.getResult().putResult(JSON.parseFromObject(video)).toString();
+        return JSONResult.getResult().putResult(JSONObject.toJSONString(video)).toString();
     }
 
 

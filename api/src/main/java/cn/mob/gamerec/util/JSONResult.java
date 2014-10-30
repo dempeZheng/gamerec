@@ -1,12 +1,12 @@
 package cn.mob.gamerec.util;
 
-import com.lamfire.utils.JSON;
+import com.alibaba.fastjson.JSONObject;
 
 /**
  * @author : Dempe
  * @version 1.0 date : 2014/9/28
  */
-public class JSONResult extends JSON {
+public class JSONResult extends JSONObject {
 
     public static JSONResult getResult() {
         JSONResult result = new JSONResult();
@@ -20,7 +20,7 @@ public class JSONResult extends JSON {
         return this;
     }
 
-    public JSONResult putResult(JSON result) {
+    public JSONResult putResult(String result) {
         put("result", result);
         return this;
     }

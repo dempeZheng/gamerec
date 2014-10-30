@@ -1,6 +1,9 @@
-GameRec
+Game Rec
 =======
  <br/>
+   
+profile
+-----------------------------------
 
 Common Analysis 统计
 ---------------------
@@ -36,13 +39,10 @@ Common Analysis 统计
 
 ###### 注释:
   type: count=>1, unique=>2, rank=>3, uniqueRank=>4
-api 接口
+Api 接口
 -------------
-recommend 推荐
+Recommend 推荐系统
 -------------
 ####userCF离线结果<br/>
 ####itemCF离线结果<br/>
 ####spark streaming实时推荐<br/>
-  
-profile
------------------------------------

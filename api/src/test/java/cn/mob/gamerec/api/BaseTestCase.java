@@ -21,11 +21,11 @@ public class BaseTestCase extends TestCase {
 
     @Before
     public void setUp() throws Exception {
-       httpClient = new HttpClient();
+        httpClient = new HttpClient();
         httpClient.setContentType("application/json");
         httpClient.setMethod("POST");
         json = new JSONObject();
-        json.put("name","dddd");
+        json.put("name", "dddd");
 
     }
 
@@ -34,15 +34,16 @@ public class BaseTestCase extends TestCase {
     }
 
     @org.junit.Test
-    public void test(){
-       excute("/test/hello",json);
+    public void test() {
+        excute("/test/hello", json);
     }
-    public void excute(String url,JSONObject jsonData){
+
+    public void excute(String url, JSONObject jsonData) {
         try {
-            httpClient.open(def_url+url);
+            httpClient.open(def_url + url);
             byte[] data = jsonData.toString().getBytes();
             data = EncryptUtil.encode(data);
-            System.out.println("data====>"+new String(data));
+            System.out.println("data====>" + new String(data));
             httpClient.post(data);
             System.out.println(httpClient.getResponseCode());
             printlnResponseResult();
@@ -50,6 +51,7 @@ public class BaseTestCase extends TestCase {
             e.printStackTrace();
         }
     }
+
     private void printlnResponseResult() throws IOException {
 //       String response = new String(httpClient.read());
 //        System.out.println(response);

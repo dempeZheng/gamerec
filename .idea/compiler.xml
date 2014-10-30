@@ -29,7 +29,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="analytics" target="1.6" />
+      <module name="analytics" target="1.7" />
       <module name="api" target="1.6" />
       <module name="gamerec" target="1.6" />
       <module name="recommend" target="1.6" />

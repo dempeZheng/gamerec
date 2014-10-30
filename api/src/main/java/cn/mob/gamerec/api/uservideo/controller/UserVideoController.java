@@ -9,7 +9,7 @@ import cn.mob.gamerec.api.video.dao.VideoDao;
 import cn.mob.gamerec.api.video.domain.Video;
 import cn.mob.gamerec.util.JSONResult;
 import cn.mob.gamerec.util.MD5;
-import com.lamfire.utils.JSON;
+import com.alibaba.fastjson.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -56,7 +56,7 @@ public class UserVideoController {
     @ResponseBody
     public String isLike(@RequestParam String userid, @RequestParam String videoid) {
         boolean isLike = userVideoDao.exists(R.ID, MD5.hash(userid + R.SPLIT + videoid));
-        JSON result = JSONResult.getResult();
+        JSONObject result = JSONResult.getResult();
         result.put("isLike", isLike);
         return result.toString();
     }
@@ -71,7 +71,7 @@ public class UserVideoController {
             videoIds.add(userVideo.getVideoid());
         }
         List<Video> videoList = videoDao.gets(videoIds);
-        return JSONResult.getResult().putResult(JSON.parseFromObject(videoList)).putTotal(total).toString();
+        return JSONResult.getResult().putResult(JSONObject.toJSONString(videoList)).putTotal(total).toString();
 
     }
 
@@ -85,7 +85,7 @@ public class UserVideoController {
             userIds.add(userVideo.getUserid());
         }
         List<User> userList = userDao.gets(userIds);
-        return JSONResult.getResult().putResult(JSON.parseFromObject(userList)).putTotal(total).toString();
+        return JSONResult.getResult().putResult(JSONObject.toJSONString(userList)).putTotal(total).toString();
     }
 
 
